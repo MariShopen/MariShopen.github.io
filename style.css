@@ -201,7 +201,7 @@ section {
 }
 
 .showcase__intro {
-  text-align: center;
+  text-align: left;
   margin-bottom: 3rem;
   color: var(--on-surface-secondary-color);
 }
@@ -376,7 +376,8 @@ section {
   text-align: center;
 }
 
-.contact-section .container {
+.contact-section .container,
+.footer .container {
   display: flex;
   flex-direction: column;
   align-items: center;
