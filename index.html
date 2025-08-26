@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio - Marina Shopina</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Header with Navigation -->
+    <header class="header">
+      <div class="container">
+        <nav class="main-nav">
+          <a href="#hero" class="logo">Marina Shopina</a>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#showcase">Showcase</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="container">
+          <h1 class="hero__title">Hi! I'm Marina Shopina</h1>
+          <p class="hero__subtitle">
+            A frontend developer passionate about building beautiful and
+            functional web applications.
+          </p>
+          <a href="#showcase" class="cta-button">See My Work</a>
+        </div>
+      </section>
+
+      <!-- Section "About Me" & "Why Web Development" -->
+      <section id="about" class="content-section about">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <p class="about__text">
+            Hi, I'm Marina! I'm a frontend developer who is passionate about
+            creating digital products that are both beautiful and easy to use.
+            My philosophy is simple: technology should help, not complicate. I
+            love turning complex problems into elegant interfaces that people
+            enjoy using again and again.
+          </p>
+          <p class="about__text">
+            To improve my English, I decided to mix
+            business with pleasure, so I'm currently working as a barista to
+            immerse myself in the language. This experience has given me great
+            soft skills, but I'm ready to move forward and fully dedicate myself
+            to a career in IT.
+          </p>
+          <p class="about__text">
+            Outside of work, my life is filled with walks
+            with my corgi and my passion for photography. I'm very curious and
+            always learning something new—from the latest JavaScript frameworks
+            to the secrets of the perfect filter coffee. I believe that constant
+            development is the key to success and enjoying life.
+          </p>
+          <hr class="section-divider" />
+          <h2 class="section-title">Why Web Development?</h2>
+          <p class="about__text">
+            my motivation
+          </p>
+        </div>
+      </section>
+
+      <!-- Showcase Section -->
+      <section id="showcase" class="showcase-section showcase">
+        <div class="container">
+          <h2 class="section-title">What I've Learned</h2>
+          <p class="showcase__intro">
+            I believe the best way to demonstrate skills is to show them in
+            action. Below are a few examples, all built with vanilla HTML, CSS,
+            and JavaScript.
+          </p>
+
+          <!-- Demo 1: Working with a REST API -->
+          <div class="showcase-item">
+            <!-- showcase-item is a block -->
+            <h3 class="showcase-item__title">
+              Demo 1: Working with a REST API
+            </h3>
+            <p class="showcase-item__description">
+              This section dynamically fetches my projects from the GitHub API.
+              It demonstrates my ability to work with asynchronous requests
+              (`fetch`) and render the retrieved data.
+              >
+            </p>
+            <div id="github-repos" class="repo-grid">
+              <!-- JS hook is id, styling is class -->
+              <!-- Repositories will be loaded here -->
+              <div class="loader"></div>
+            </div>
+          </div>
+
+          <!-- Demo 2: Interactive Component -->
+          <div class="showcase-item">
+            <!-- showcase-item is a block -->
+            <h3 class="showcase-item__title">Demo 2: Interactive To-Do List</h3>
+            <p class="showcase-item__description">
+              A simple to-do list application. It showcases DOM manipulation and
+              the use of `localStorage` to persist data across sessions. The
+              code is structured with a component-based approach, inspired by
+              React.
+            </p>
+            <div class="todo-app">
+              <!-- todo-app is a block -->
+              <input
+                type="text"
+                id="todo-input"
+                class="todo-app__input"
+                placeholder="Add a new task..."
+              />
+              <button id="add-todo-btn" class="todo-app__add-btn">Add</button>
+              <ul id="todo-list" class="todo-app__list"></ul>
+            </div>
+          </div>
+          <!-- Other Skills -->
+          <div class="showcase-item">
+            <!-- showcase-item is a block -->
+            <h3 class="showcase-item__title">My Tech Stack</h3>
+            <p class="showcase-item__description">
+              Beyond the fundamentals, I have experience with modern tools and
+              frameworks that allow for building more complex and scalable
+              applications:
+            </p>
+            <div class="tech-stack">
+              <!-- tech-stack is a block -->
+              <span class="tech-stack__item">React & Hooks</span>
+              <span class="tech-stack__item">Express.js</span>
+              <span class="tech-stack__item">PostgreSQL</span>
+              <span class="tech-stack__item">SCSS</span>
+              <span class="tech-stack__item">TailwindCSS</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="contact-section contact">
+        <div class="container">
+          <h2 class="section-title">Get In Touch</h2>
+          <p class="contact__text">
+            I'm always open to new projects and exciting opportunities.
+          </p>
+          <p class="contact__text">
+            Email:
+            <a href="mailto:marinashopina95@gmail.com" class="contact__link"
+              >marinashopina95@gmail.com</a
+            >
+          </p>
+          <p class="contact__text">
+            GitHub:
+            <a
+              href="https://github.com/MariShopen"
+              target="_blank"
+              id="github-link"
+              class="contact__link"
+              >MariShopen</a
+            >
+          </p>
+          <!-- Link to the repo for this site, as required by the project brief -->
+          <p class="contact__repo-link">
+            The code for this website is available in
+            <a
+              href=""
+              target="_blank"
+              class="contact__link"
+              >this GitHub repository</a
+            >.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer__text">
+          &copy; 2025 Marina Shopina. Made with ❤️ using vanilla HTML, CSS & JS.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

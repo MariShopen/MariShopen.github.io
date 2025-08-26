@@ -1,0 +1,397 @@
+/* --- Global Variables & Styles --- */
+:root {
+  --bg-color: #212121;
+  --surface-color: #323232;
+  --primary-color: #dd6456;
+  --secondary-color: #ffb74d;
+  --on-surface-color: #f5f5f5;
+  --on-surface-secondary-color: #bdbdbd;
+  --border-color: #424242;
+
+  --font-family-heading: "Press Start 2P", cursive;
+  --font-family-body: "Share Tech Mono", monospace;
+
+  --transition-speed: 0.1s;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: none;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--on-surface-color);
+  font-family: var(--font-family-body);
+  line-height: 1.8;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+p {
+  margin-bottom: 1rem;
+  max-width: 75ch;
+}
+
+a {
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+.repo-card__link,
+.contact__link {
+  color: var(--secondary-color);
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+
+/* --- Header & Navigation --- */
+.header {
+  background-color: rgba(33, 33, 33, 0.8);
+  backdrop-filter: blur(5px);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.logo {
+  font-family: var(--font-family-heading);
+  font-size: 1.2rem;
+  color: white;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+}
+
+.main-nav ul li {
+  margin-left: 25px;
+}
+
+.main-nav ul li a {
+  font-weight: 500;
+  color: var(--on-surface-color);
+  padding: 5px;
+}
+
+.main-nav ul li a:hover {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+}
+
+/* --- Sections --- */
+section {
+  padding: 100px 0;
+}
+
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 1)),
+    url("https://placehold.co/1920x1080/212121/212121?text=") no-repeat center
+      center/cover;
+}
+
+.hero__title {
+  font-family: var(--font-family-heading);
+  color: white;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.hero__subtitle {
+  font-size: 1.1rem;
+  color: var(--on-surface-secondary-color);
+  margin-bottom: 2.5rem;
+}
+
+.section-title {
+  font-family: var(--font-family-heading);
+  color: white;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  border-bottom: 4px solid var(--primary-color);
+  display: inline-block;
+  padding-bottom: 0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.cta-button {
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  padding: 15px 30px;
+  font-family: var(--font-family-heading);
+  font-size: 0.9rem;
+  border: 2px solid var(--border-color);
+  box-shadow: 4px 4px 0px var(--border-color);
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
+}
+
+.cta-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--border-color);
+  color: var(--bg-color);
+}
+
+.content-section {
+  background-color: var(--surface-color);
+}
+
+.section-divider {
+  border: 0;
+  height: 4px;
+  background: var(--border-color);
+  margin: 3rem 0;
+}
+
+.about__text {
+  /* Override the global 'p' max-width to fill the container */
+  max-width: none;
+}
+
+.showcase-section {
+  background-color: var(--bg-color);
+}
+
+.showcase-item {
+  background-color: var(--surface-color);
+  padding: 2rem;
+  margin-bottom: 3rem;
+  border: 2px solid var(--border-color);
+}
+
+.showcase-item__title {
+  font-family: var(--font-family-heading);
+  color: var(--secondary-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+.showcase__intro {
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--on-surface-secondary-color);
+}
+
+/* --- Demo 1: GitHub Repositories --- */
+.repo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.repo-card {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border: 2px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.repo-card__title {
+  font-family: var(--font-family-body);
+  font-size: 1.2rem;
+  text-transform: none;
+  color: var(--secondary-color);
+  margin-bottom: 0.5rem;
+}
+
+.repo-card__description {
+  font-size: 1rem;
+  color: var(--on-surface-secondary-color);
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
+.repo-card__link {
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.loader {
+  width: 50px;
+  height: 50px;
+  border: 5px solid var(--border-color);
+  border-top-color: var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 2rem auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* --- Demo 2: To-Do List --- */
+.todo-app {
+  background-color: var(--bg-color);
+  padding: 1.5rem;
+  border: 2px solid var(--border-color);
+  margin-top: 1.5rem;
+}
+
+.todo-app__input {
+  width: calc(100% - 130px);
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  background-color: var(--surface-color);
+  color: var(--on-surface-color);
+  font-family: var(--font-family-body);
+  font-size: 1rem;
+}
+
+.todo-app__add-btn {
+  width: 120px;
+  padding: 12px;
+  background-color: var(--primary-color);
+  color: var(--bg-color);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  font-family: var(--font-family-heading);
+  font-size: 0.7rem;
+  margin-left: 10px;
+  box-shadow: 4px 4px 0px var(--border-color);
+}
+.todo-app__add-btn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px var(--border-color);
+}
+
+.todo-app__list {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.todo-app__item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--surface-color);
+  border: 2px solid var(--border-color);
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.todo-app__item--completed {
+  text-decoration: line-through;
+  color: var(--on-surface-secondary-color);
+  background-color: #2a2a2a;
+}
+
+.todo-app__delete-btn {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-family: monospace;
+}
+
+/* --- Tech Stack --- */
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 1.5rem;
+}
+
+.tech-stack__item {
+  background-color: var(--bg-color);
+  color: var(--secondary-color);
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 2px solid var(--border-color);
+}
+
+/* --- Contact & Footer --- */
+.contact-section {
+  background-color: var(--surface-color);
+  text-align: center;
+}
+
+.contact-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact__text {
+  margin-bottom: 1rem;
+}
+
+.contact__repo-link {
+  margin-top: 2rem;
+  color: var(--on-surface-secondary-color);
+}
+
+.footer {
+  text-align: center;
+  padding: 20px 0;
+  border-top: 2px solid var(--border-color);
+  color: var(--on-surface-secondary-color);
+  font-size: 0.9rem;
+}
+
+/* --- Responsiveness --- */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 1.5rem;
+  }
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .main-nav {
+    flex-direction: column;
+    height: auto;
+    padding: 15px 0;
+  }
+  .main-nav ul {
+    margin-top: 15px;
+  }
+  .main-nav ul li {
+    margin: 0 10px;
+  }
+
+  section {
+    padding: 60px 0;
+  }
+}
