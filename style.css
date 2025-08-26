@@ -117,6 +117,42 @@ section {
   background: linear-gradient(rgba(33, 33, 33, 0.7), rgba(33, 33, 33, 1)),
     url("https://placehold.co/1920x1080/212121/212121?text=") no-repeat center
       center/cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.hero__icon {
+  position: absolute;
+  opacity: 1;
+  user-select: none;
+  z-index: 0;
+  height: auto;
+}
+
+.hero__icon--korgi {
+  top: 15%;
+  left: 20%;
+  width: 100px;
+  transform: rotate(-20deg);
+}
+
+.hero__icon--photo {
+  top: 20%;
+  right: 15%;
+  width: 100px;
+  transform: rotate(15deg);
+}
+
+.hero__icon--v60 {
+  bottom: 15%;
+  left: 30%;
+  width: 150px;
+  transform: rotate(5deg);
 }
 
 .hero__title {
@@ -407,6 +443,28 @@ section {
   }
   .section-title {
     font-size: 1.2rem;
+  }
+
+  .hero__icon {
+    opacity: 1;
+  }
+
+  .hero__icon--korgi {
+    top: 15%;
+    left: 8%;
+    width: 60px;
+  }
+
+  .hero__icon--photo {
+    top: 20%;
+    right: 5%;
+    width: 60px;
+  }
+
+  .hero__icon--v60 {
+    bottom: 15%;
+    left: 22%;
+    width: 100px;
   }
 
   .main-nav {
