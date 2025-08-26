@@ -32,15 +32,28 @@ document.addEventListener("DOMContentLoaded", () => {
       repos.slice(0, 6).forEach((repo) => {
         const repoCard = document.createElement("div");
         repoCard.className = "repo-card";
-        repoCard.innerHTML = `
-                    <h4 class="repo-card__title">${repo.name}</h4>
-                    <p class="repo-card__description">${
-                      repo.description || "No description available."
-                    }</p>
-                    <a class="repo-card__link" href="${
-                      repo.html_url
-                    }" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-                `;
+
+        const title = document.createElement("h4");
+        title.className = "repo-card__title";
+        title.textContent = repo.name;
+        title.addEventListener("click", () => {
+          title.classList.toggle("repo-card__title--expanded");
+        });
+
+        const description = document.createElement("p");
+        description.className = "repo-card__description";
+        description.textContent = repo.description || "No description available.";
+
+        const link = document.createElement("a");
+        link.className = "repo-card__link";
+        link.href = repo.html_url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "View on GitHub";
+
+        repoCard.appendChild(title);
+        repoCard.appendChild(description);
+        repoCard.appendChild(link);
         reposContainer.appendChild(repoCard);
       });
     } catch (error) {
@@ -75,28 +88,40 @@ document.addEventListener("DOMContentLoaded", () => {
       tasks.forEach((task, index) => {
         const li = document.createElement("li");
         li.className = "todo-app__item";
-        li.textContent = task.text;
         if (task.completed) {
           li.classList.add("todo-app__item--completed");
         }
 
-        // Mark task as completed on click
+        const textSpan = document.createElement("span");
+        textSpan.className = "todo-app__item-text";
+        textSpan.textContent = task.text;
+
+        // Click the text itself to expand or collapse it.
+        textSpan.addEventListener("click", (e) => {
+          e.stopPropagation(); // Prevent the li's click listener from firing.
+          textSpan.classList.toggle("todo-app__item-text--expanded");
+        });
+
+        // Click the list item to toggle the completed status.
         li.addEventListener("click", () => {
           tasks[index].completed = !tasks[index].completed;
           saveTasks();
-          renderTasks();
+          // Toggle the class directly to avoid a full re-render, which would
+          // otherwise reset the expanded state of the text.
+          li.classList.toggle("todo-app__item--completed");
         });
 
         const deleteBtn = document.createElement("button");
         deleteBtn.className = "todo-app__delete-btn";
         deleteBtn.textContent = "×";
         deleteBtn.addEventListener("click", (e) => {
-          e.stopPropagation(); // Prevent the li's click listener from firing
+          e.stopPropagation(); // Prevent the li's click listener from firing.
           tasks.splice(index, 1);
           saveTasks();
           renderTasks();
         });
 
+        li.appendChild(textSpan);
         li.appendChild(deleteBtn);
         todoList.appendChild(li);
       });

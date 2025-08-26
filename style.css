@@ -228,6 +228,18 @@ section {
   text-transform: none;
   color: var(--secondary-color);
   margin-bottom: 0.5rem;
+  cursor: pointer;
+  word-break: break-word;
+  /* Truncate to 2 lines by default */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.repo-card__title--expanded {
+  -webkit-line-clamp: unset;
 }
 
 .repo-card__description {
@@ -306,6 +318,23 @@ section {
   border: 2px solid var(--border-color);
   margin-bottom: 10px;
   cursor: pointer;
+}
+
+.todo-app__item-text {
+  margin-right: 10px; /* Space for the delete button */
+  word-break: break-word; /* Allow long words to wrap */
+  /* Truncate text to 3 lines by default using line-clamp */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* When expanded, remove the line clamp to show all text */
+.todo-app__item-text--expanded {
+  -webkit-line-clamp: unset;
+  display: block;
 }
 
 .todo-app__item--completed {
