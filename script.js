@@ -3,7 +3,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const navLinks = document.querySelectorAll(".main-nav a, .cta-button");
 
-  // A list of specific repositories to display in the showcase.
   const FEATURED_REPOS = [
     "MariShopen.github.io",
     "dryh",
@@ -37,10 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
       reposContainer.innerHTML = "";
 
-      // Filter the fetched repos to only include the ones in our featured list.
       const featured = repos
         .filter((repo) => FEATURED_REPOS.includes(repo.name))
-        // Sort them to match the order in the FEATURED_REPOS array.
         .sort(
           (a, b) =>
             FEATURED_REPOS.indexOf(a.name) - FEATURED_REPOS.indexOf(b.name)
