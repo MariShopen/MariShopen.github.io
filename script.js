@@ -2,6 +2,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const GITHUB_USERNAME = "MariShopen";
 
   const navLinks = document.querySelectorAll(".main-nav a, .cta-button");
+
+  // A list of specific repositories to display in the showcase.
+  const FEATURED_REPOS = [
+    "MariShopen.github.io",
+    "dryh",
+    "Pokemon",
+    "Country-Quiz",
+  ];
   navLinks.forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
@@ -29,7 +37,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
       reposContainer.innerHTML = "";
 
-      repos.slice(0, 6).forEach((repo) => {
+      // Filter the fetched repos to only include the ones in our featured list.
+      const featured = repos
+        .filter((repo) => FEATURED_REPOS.includes(repo.name))
+        // Sort them to match the order in the FEATURED_REPOS array.
+        .sort(
+          (a, b) =>
+            FEATURED_REPOS.indexOf(a.name) - FEATURED_REPOS.indexOf(b.name)
+        );
+
+      featured.forEach((repo) => {
         const repoCard = document.createElement("div");
         repoCard.className = "repo-card";
 
@@ -42,7 +59,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const description = document.createElement("p");
         description.className = "repo-card__description";
-        description.textContent = repo.description || "No description available.";
+        description.textContent =
+          repo.description || "No description available.";
 
         const link = document.createElement("a");
         link.className = "repo-card__link";
@@ -63,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   };
   fetchGitHubRepos();
-
 
   const githubLink = document.getElementById("github-link");
   if (githubLink) {
