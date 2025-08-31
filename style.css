@@ -314,8 +314,14 @@ section {
   margin-top: 1.5rem;
 }
 
+.todo-app__form {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .todo-app__input {
-  width: calc(100% - 130px);
+  flex-grow: 1;
   padding: 10px;
   border: 2px solid var(--border-color);
   background-color: var(--surface-color);
@@ -325,20 +331,22 @@ section {
 }
 
 .todo-app__add-btn {
-  width: 120px;
-  padding: 12px;
+  flex-shrink: 0;
+  padding: 15px 30px;
   background-color: var(--primary-color);
   color: var(--bg-color);
   border: 2px solid var(--border-color);
   cursor: pointer;
   font-family: var(--font-family-heading);
-  font-size: 0.7rem;
-  margin-left: 10px;
+  font-size: 0.9rem;
   box-shadow: 4px 4px 0px var(--border-color);
+  transition: transform var(--transition-speed),
+    box-shadow var(--transition-speed);
 }
 .todo-app__add-btn:hover {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0px var(--border-color);
+  color: var(--bg-color);
 }
 
 .todo-app__list {
@@ -481,5 +489,11 @@ section {
 
   section {
     padding: 60px 0;
+  }
+
+  /* Stack To-Do form on mobile */
+  .todo-app__form {
+    flex-direction: column;
+    align-items: stretch;
   }
 }

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll(".main-nav a, .cta-button");
 
   const FEATURED_REPOS = [
-    "MariShopen.github.io",
+    "country-quiz-simple",
     "dryh",
     "Pokemon",
     "Country-Quiz",
