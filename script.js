@@ -162,4 +162,71 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   todoApp();
+
+  // --- Weather App Logic ---
+  const weatherApp = () => {
+    const API_KEY = "d57803e0a730e83c9ba79b9d55c99d3c";
+    const cityInput = document.getElementById("city-input");
+    const getWeatherBtn = document.getElementById("get-weather-btn");
+    const weatherResult = document.getElementById("weather-result");
+    const weatherError = document.getElementById("weather-error");
+
+    const fetchWeather = async () => {
+      const city = cityInput.value.trim();
+      if (city === "") {
+        showError("Please enter a city name.");
+        return;
+      }
+
+      // Reset state
+      weatherResult.style.display = "none";
+      weatherError.style.display = "none";
+
+      const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`;
+
+      try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+          if (response.status === 404) {
+            throw new Error("City not found. Please check the spelling.");
+          } else {
+            throw new Error(`An error occurred: ${response.statusText}`);
+          }
+        }
+        const data = await response.json();
+        displayWeather(data);
+      } catch (error) {
+        showError(error.message);
+      }
+    };
+
+    const displayWeather = (data) => {
+      const { name, main, weather } = data;
+      const iconCode = weather[0].icon;
+      const description = weather[0].description;
+      const temperature = Math.round(main.temp);
+
+      weatherResult.innerHTML = `
+        <div class="weather-app__result-info">
+          <h4>${name}</h4>
+          <p>${description}</p>
+        </div>
+        <div class="weather-app__result-temp">${temperature}°C</div>
+        <img src="https://openweathermap.org/img/wn/${iconCode}@2x.png" alt="${description}" class="weather-app__result-icon">
+      `;
+      weatherResult.style.display = "flex";
+    };
+
+    const showError = (message) => {
+      weatherError.textContent = message;
+      weatherError.style.display = "block";
+    };
+
+    getWeatherBtn.addEventListener("click", fetchWeather);
+    cityInput.addEventListener("keypress", (e) => {
+      if (e.key === "Enter") fetchWeather();
+    });
+  };
+
+  weatherApp();
 });

@@ -1,6 +1,6 @@
 # Marina Shopina - Portfolio Showcase
 
-This is my personal portfolio, built for the "Tell us about you" assignment. It's a place to introduce myself, talk about my journey into web development, and show what I've learned.
+This is my personal portfolio. It's a place to introduce myself, talk about my journey into web development, and show what I've learned.
 
 **Live Site:** [**marishopen.github.io**](https://marishopen.github.io/)
 
@@ -15,7 +15,10 @@ This site was built from scratch to meet all the assignment's requirements:
 *   **Hosted on:** GitHub Pages.
 *   **Features:**
     *   An "About Me" and "Why Web Dev" section.
-    *   A showcase of my skills, including a GitHub repo fetcher and an interactive To-Do list.
+    *   A showcase of my skills, including:
+        *   A **Weather App** to demonstrate working with a third-party REST API.
+        *   An interactive **To-Do List** to show DOM manipulation and `localStorage`.
+        *   A dynamic list of my other **GitHub projects**.
     *   A link back to this repository.
 
 ### Tech Used
